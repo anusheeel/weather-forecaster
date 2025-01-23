@@ -1,0 +1,32 @@
+# config/config.yaml
+model_config:
+  transformer:
+    n_layers: 6
+    n_heads: 8
+    d_model: 512
+    d_ff: 2048
+    dropout: 0.1
+  lstm:
+    hidden_size: 256
+    num_layers: 2
+    dropout: 0.2
+  cnn:
+    channels: [64, 128, 256]
+    kernel_sizes: [3, 3, 3]
+    
+training_config:
+  batch_size: 32
+  learning_rate: 0.001
+  num_epochs: 100
+  validation_split: 0.2
+  
+data_config:
+  sequence_length: 365  # One year of historical data
+  forecast_horizon: 365  # One year prediction
+  features: [
+    "temperature",
+    "precipitation",
+    "humidity",
+    "wind_speed",
+    "pressure"
+  ]
